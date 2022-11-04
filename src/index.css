@@ -1,0 +1,431 @@
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block;
+}
+body {
+  line-height: 1;
+}
+ol,
+ul {
+  list-style: none;
+}
+blockquote,
+q {
+  quotes: none;
+}
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: '';
+  content: none;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/* GENERAL */
+
+:root {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+* {
+  background-color: black;
+  color: white;
+  box-sizing: border-box;
+  line-height: 1.5rem;
+}
+
+#root {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+h1,
+h2 {
+  text-align: center;
+  font-weight: bold;
+}
+
+h1 {
+  font-size: 2rem;
+}
+
+h2 {
+  font-size: 1.5rem;
+}
+
+img {
+  /* Eliminates the extra size */
+  display: block;
+}
+
+a {
+  text-decoration: none;
+}
+
+input,
+button {
+  height: 3rem;
+  border-radius: 1.5rem;
+  padding: 1rem;
+}
+
+textarea {
+  padding: 1rem;
+}
+
+button {
+  display: inline-flex;
+  text-decoration: none;
+  justify-content: center;
+  align-items: center;
+  border-bottom: 0px;
+  height: 3rem;
+  width: max-content;
+  font-weight: bold;
+}
+
+input {
+  min-width: 5rem;
+  max-width: 12rem;
+}
+
+/* NAVBAR */
+
+nav {
+  height: 4rem;
+  padding: 1rem;
+  display: flex;
+  flex: 0 1 4rem;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 2rem;
+  text-align: center;
+}
+
+nav > div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
+
+nav a {
+  all: unset;
+  color: #db0000;
+}
+
+nav a:hover {
+  cursor: pointer;
+}
+
+.saved-navbar {
+  color: white;
+}
+
+nav img {
+  height: 4rem;
+  aspect-ratio: 1;
+  margin-right: -1rem;
+}
+
+/* MAIN */
+
+main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  flex: 1 0 auto;
+  padding: 1rem;
+  gap: 1rem;
+  max-width: 60rem;
+  margin: 0 auto;
+}
+
+/* FOOTER */
+
+footer {
+  height: 4rem;
+  display: flex;
+  flex: 0 1 4rem;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
+
+#linkedinIcon {
+  height: 3rem;
+  aspect-ratio: 1;
+}
+
+/* HOME */
+
+.front-page {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.front-page > div {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  align-items: center;
+}
+
+.home-image {
+  min-width: 10rem;
+  max-width: 24rem;
+  flex: 1 1 auto;
+  overflow: hidden;
+}
+
+.home-description {
+  min-width: 10rem;
+  max-width: 30rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+/* FINDER */
+
+.search-area {
+  display: flex;
+  gap: 1rem;
+}
+
+.search-button {
+  background-color: white;
+  font-size: 2rem;
+}
+
+.search-result {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.search-result > figcaption {
+  font-weight: bold;
+  text-align: center;
+  margin-top: 2rem;
+}
+
+.show-info {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+}
+
+.show-info > img {
+  max-width: 12rem;
+  max-height: 40rem;
+}
+
+.show-info > p {
+  min-width: 12rem;
+  width: min-content;
+}
+
+/* SHOW FORM */
+
+.show-form-container {
+  display: flex;
+  gap: 2rem;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 2rem;
+}
+
+.show-form-section {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  min-width: 20rem;
+}
+
+.show-form-section input {
+  min-width: 20rem;
+}
+
+.show-form-section > form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.show-form-section > form > div {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.show-form-section > form > div > textarea {
+  border-radius: 1.5rem;
+  height: 10rem;
+}
+
+.show-form-section > a {
+  align-self: center;
+  justify-self: center;
+}
+
+.show-preview-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 20rem;
+  width: min-content;
+}
+
+/* SAVED SHOWS */
+
+.shows-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+}
+
+.shows-container img {
+  width: 12rem;
+}
+
+/* SHOW DETAILS */
+
+.show-details {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.show-details > div {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.details-container {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.details-container > ul {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
