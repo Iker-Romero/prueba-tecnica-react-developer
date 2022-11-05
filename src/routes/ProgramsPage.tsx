@@ -46,11 +46,21 @@ const ProgramsPage = (props: { type: 'series' | 'movies' }) => {
     <>
       <h1>Popular {type}</h1>
       {programs.map((program) => {
-        const { title }: { title: string } = program;
+        const {
+          title,
+          images: {
+            'Poster Art': { url },
+          },
+        }: {
+          title: string;
+          images: {
+            'Poster Art': { url: string };
+          };
+        } = program;
 
         return (
           <StyledFigure key={title}>
-            <img src="" alt="" />
+            <img src={url} alt="" />
             <figcaption>{title}</figcaption>
           </StyledFigure>
         );
