@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 
 import StyledFigure from '../../ui/StyledFigure';
 import StyledSection from '../../ui/StyledSection';
+import sortByTitle from '../../utilities/sortByTitle';
 import getData from '../API/api';
 
 export interface ProgramType {
@@ -9,6 +10,7 @@ export interface ProgramType {
   description: string;
   programType: string;
   images: ImagesType;
+  releaseYear: number;
 }
 
 interface ImagesType {
@@ -34,10 +36,12 @@ const ProgramsPage = (props: { type: 'series' | 'movies' }) => {
 
       const programsByType = data.entries.filter((program: ProgramType) => {
         if (type === 'movies') {
-          return program.programType === 'movie';
+          return program.programType === 'movie' && program.releaseYear >= 2010;
         }
         return program.programType === type;
       });
+
+      programsByType.sort((a: ProgramType, b: ProgramType) => sortByTitle(a, b));
 
       setPrograms(programsByType);
     })();
@@ -47,25 +51,27 @@ const ProgramsPage = (props: { type: 'series' | 'movies' }) => {
     <>
       <h1>Popular {type}</h1>
       <StyledSection>
-        {programs.map((program) => {
-          const {
-            title,
-            images: {
-              'Poster Art': { url },
-            },
-          }: {
-            title: string;
-            images: {
-              'Poster Art': { url: string };
-            };
-          } = program;
+        {programs.map((program, i) => {
+          while (i < 20) {
+            const {
+              title,
+              images: {
+                'Poster Art': { url },
+              },
+            }: {
+              title: string;
+              images: {
+                'Poster Art': { url: string };
+              };
+            } = program;
 
-          return (
-            <StyledFigure key={title}>
-              <img src={url} alt="" />
-              <figcaption>{title}</figcaption>
-            </StyledFigure>
-          );
+            return (
+              <StyledFigure key={title}>
+                <img src={url} alt={`${title} poster`} />
+                <figcaption>{title}</figcaption>
+              </StyledFigure>
+            );
+          }
         })}
       </StyledSection>
     </>
