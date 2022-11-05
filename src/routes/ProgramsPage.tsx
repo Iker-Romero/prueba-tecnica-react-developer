@@ -1,5 +1,7 @@
 import { useEffect, useState } from 'react';
 
+import StyledFigure from '../../ui/StyledFigure';
+
 export interface ProgramType {
   title: string;
   description: string;
@@ -44,10 +46,10 @@ const ProgramsPage = (props: { type: string }) => {
         const { title }: { title: string } = program;
 
         return (
-          <figure key={title}>
+          <StyledFigure key={title}>
             <img src="" alt="" />
-            <figcaption>{}</figcaption>
-          </figure>
+            <figcaption>{title}</figcaption>
+          </StyledFigure>
         );
       })}
     </>

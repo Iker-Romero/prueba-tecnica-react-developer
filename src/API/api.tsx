@@ -1,6 +1,11 @@
 const getData = async (baseURL: string, endPoint?: string | number) => {
   try {
-    const rawData = await fetch(`${baseURL}/${endPoint}`);
+    let rawData;
+    if (endPoint) {
+      rawData = await fetch(`${baseURL}/${endPoint}`);
+    } else {
+      rawData = await fetch(baseURL);
+    }
     const jsonData = await rawData.json();
 
     return jsonData;
