@@ -1,6 +1,7 @@
 import { Outlet } from 'react-router-dom';
 
 import Nav from '../../components/Nav';
+import Main from '../../ui/Main';
 
 const Root = () => {
   return (
@@ -8,9 +9,9 @@ const Root = () => {
       <header>
         <Nav />
       </header>
-      <main>
+      <Main>
         <Outlet />
-      </main>
+      </Main>
     </>
   );
 };

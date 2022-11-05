@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 
 import StyledFigure from '../../ui/StyledFigure';
+import StyledSection from '../../ui/StyledSection';
 import getData from '../API/api';
 
 export interface ProgramType {
@@ -45,26 +46,28 @@ const ProgramsPage = (props: { type: 'series' | 'movies' }) => {
   return (
     <>
       <h1>Popular {type}</h1>
-      {programs.map((program) => {
-        const {
-          title,
-          images: {
-            'Poster Art': { url },
-          },
-        }: {
-          title: string;
-          images: {
-            'Poster Art': { url: string };
-          };
-        } = program;
+      <StyledSection>
+        {programs.map((program) => {
+          const {
+            title,
+            images: {
+              'Poster Art': { url },
+            },
+          }: {
+            title: string;
+            images: {
+              'Poster Art': { url: string };
+            };
+          } = program;
 
-        return (
-          <StyledFigure key={title}>
-            <img src={url} alt="" />
-            <figcaption>{title}</figcaption>
-          </StyledFigure>
-        );
-      })}
+          return (
+            <StyledFigure key={title}>
+              <img src={url} alt="" />
+              <figcaption>{title}</figcaption>
+            </StyledFigure>
+          );
+        })}
+      </StyledSection>
     </>
   );
 };
