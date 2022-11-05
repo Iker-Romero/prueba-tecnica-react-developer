@@ -11,7 +11,7 @@ const Home = () => {
         <Link to="/series">
           <StyledFigure>Series</StyledFigure>
         </Link>
-        <Link to="/movie">
+        <Link to="/movies">
           <StyledFigure>Movies</StyledFigure>
         </Link>
       </StyledSection>

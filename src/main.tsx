@@ -23,8 +23,8 @@ const router = createBrowserRouter([
         element: <ProgramsPage type="series" />,
       },
       {
-        path: 'movie',
-        element: <ProgramsPage type="movie" />,
+        path: 'movies',
+        element: <ProgramsPage type="movies" />,
       },
       {
         path: '*',

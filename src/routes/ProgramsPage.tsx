@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 
 import StyledFigure from '../../ui/StyledFigure';
+import getData from '../API/api';
 
 export interface ProgramType {
   title: string;
@@ -19,8 +20,7 @@ interface PosterArtType {
   height: number;
 }
 
-import getData from '../API/api';
-const ProgramsPage = (props: { type: string }) => {
+const ProgramsPage = (props: { type: 'series' | 'movies' }) => {
   const { type } = props;
 
   const [programs, setPrograms] = useState([]);
@@ -32,6 +32,9 @@ const ProgramsPage = (props: { type: string }) => {
       );
 
       const programsByType = data.entries.filter((program: ProgramType) => {
+        if (type === 'movies') {
+          return program.programType === 'movie';
+        }
         return program.programType === type;
       });
 
