@@ -1,8 +1,10 @@
 import { ProgramType } from '../src/routes/ProgramsPage';
 import PopUpDiv from '../ui/PopUpDiv';
 
-const PopUp = (program: ProgramType) => {
+const PopUp = (props: { program: ProgramType }) => {
   console.log('POPUP');
+  const { program } = props;
+
   const {
     title,
     description,
@@ -11,7 +13,15 @@ const PopUp = (program: ProgramType) => {
       'Poster Art': { url },
     },
   }: ProgramType = program;
-  return <PopUpDiv>HOLA</PopUpDiv>;
+
+  return (
+    <PopUpDiv>
+      <h1>{title}</h1>
+      <p>{description}</p>
+      <h2>{releaseYear}</h2>
+      <img src={url} alt={`${title} poster`} />
+    </PopUpDiv>
+  );
 };
 
 export default PopUp;

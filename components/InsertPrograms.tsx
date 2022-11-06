@@ -1,4 +1,5 @@
 import React from 'react';
+import { useRef } from 'react';
 
 import { ProgramType } from '../src/routes/ProgramsPage';
 import StyledFigure from '../ui/StyledFigure';
@@ -8,7 +9,10 @@ const InsertPrograms = React.memo(function InsertPrograms(props: {
   programs: ProgramType[];
   handleClick: (program: ProgramType) => void;
 }) {
+  console.log('insertPrograms');
   const { programs, handleClick } = props;
+
+  // const figureRef = useRef(null);
 
   return (
     <>

@@ -28,6 +28,8 @@ interface PosterArtType {
 let popUpProgram: ProgramType;
 
 const ProgramsPage = (props: { type: 'series' | 'movies' }) => {
+  console.log('ProgramsPage');
+
   const { type } = props;
 
   const [programs, setPrograms] = useState([]);
@@ -66,9 +68,8 @@ const ProgramsPage = (props: { type: 'series' | 'movies' }) => {
       <h1>Popular {type}</h1>
       {/* {popUpState && console.log(popUpProgram)}
       {console.log(popUpProgram)} */}
-      {console.log('me renderizo')}
       <InsertPrograms programs={programs} handleClick={handleClick} />
-      {popUpProgram ? <div>HOLA</div> : null}
+      {popUpProgram && <PopUp program={popUpProgram} />}
     </>
   );
 };
