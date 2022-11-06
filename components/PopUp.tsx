@@ -2,7 +2,6 @@ import { ProgramType } from '../src/routes/ProgramsPage';
 import PopUpDiv from '../ui/PopUpDiv';
 
 const PopUp = (props: { program: ProgramType }) => {
-  console.log('POPUP');
   const { program } = props;
 
   const {

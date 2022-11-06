@@ -1,9 +1,7 @@
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useState } from 'react';
 
 import InsertPrograms from '../../components/InsertPrograms';
 import PopUp from '../../components/PopUp';
-import StyledFigure from '../../ui/StyledFigure';
-import StyledSection from '../../ui/StyledSection';
 import sortByTitle from '../../utilities/sortByTitle';
 import getData from '../API/api';
 
@@ -25,19 +23,12 @@ interface PosterArtType {
   height: number;
 }
 
-let popUpProgram: ProgramType;
-
 const ProgramsPage = (props: { type: 'series' | 'movies' }) => {
-  console.log('ProgramsPage');
-
   const { type } = props;
 
   const [programs, setPrograms] = useState([]);
 
-  // const [popUpState, setPopUpState] = useState(false);
-
   const [popUpProgram, setPopUpProgram] = useState<ProgramType>();
-  // const figureRef = useRef(null);
 
   useEffect(() => {
     (async () => {
@@ -59,15 +50,12 @@ const ProgramsPage = (props: { type: 'series' | 'movies' }) => {
   }, []);
 
   const handleClick = (program: ProgramType) => {
-    console.log('click');
     if (program) setPopUpProgram(program);
   };
 
   return (
     <>
       <h1>Popular {type}</h1>
-      {/* {popUpState && console.log(popUpProgram)}
-      {console.log(popUpProgram)} */}
       <InsertPrograms programs={programs} handleClick={handleClick} />
       {popUpProgram && <PopUp program={popUpProgram} />}
     </>
