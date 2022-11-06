@@ -23,6 +23,8 @@ interface PosterArtType {
   height: number;
 }
 
+let isLoading = true;
+
 const ProgramsPage = (props: { type: 'series' | 'movies' }) => {
   const { type } = props;
 
@@ -45,6 +47,8 @@ const ProgramsPage = (props: { type: 'series' | 'movies' }) => {
 
       programsByType.sort((a: ProgramType, b: ProgramType) => sortByTitle(a, b));
 
+      isLoading = false;
+
       setPrograms(programsByType);
     })();
   }, []);
@@ -54,6 +58,9 @@ const ProgramsPage = (props: { type: 'series' | 'movies' }) => {
     if (program) setPopUpProgram(program);
   };
 
+  if (isLoading) {
+    return <h1>Loading...</h1>;
+  }
   return (
     <>
       <h1>Popular {type}</h1>
