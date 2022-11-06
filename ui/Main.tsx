@@ -5,8 +5,9 @@ const Main = styled.main`
   flex-direction: column;
   gap: 2rem;
   padding: 1rem;
-  margin: 0 auto;
+  margin: 4rem auto 0;
   max-width: 70rem;
+  justify-content: center;
 `;
 
 export default Main;

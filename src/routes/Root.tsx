@@ -1,13 +1,15 @@
-import { Outlet } from 'react-router-dom';
+import { NavLink, Outlet } from 'react-router-dom';
 
-import Nav from '../../components/Nav';
 import Main from '../../ui/Main';
+import Nav from '../../ui/Nav';
 
 const Root = () => {
   return (
     <>
       <header>
-        <Nav />
+        <Nav>
+          <NavLink to="/">DEMO Streaming</NavLink>
+        </Nav>
       </header>
       <Main>
         <Outlet />

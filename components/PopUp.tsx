@@ -15,10 +15,12 @@ const PopUp = (props: { program: ProgramType }) => {
 
   return (
     <PopUpDiv>
-      <h1>{title}</h1>
-      <p>{description}</p>
-      <h2>{releaseYear}</h2>
       <img src={url} alt={`${title} poster`} />
+      <div>
+        <h1>{title}</h1>
+        <h2>({releaseYear})</h2>
+        <p>{description}</p>
+      </div>
     </PopUpDiv>
   );
 };
