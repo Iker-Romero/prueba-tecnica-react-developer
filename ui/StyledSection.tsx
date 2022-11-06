@@ -1,3 +1,4 @@
+import React from 'react';
 import styled from 'styled-components';
 
 const StyledSection = styled.section`
@@ -9,4 +10,4 @@ const StyledSection = styled.section`
   justify-content: center;
 `;
 
-export default StyledSection;
+export default React.memo(StyledSection);

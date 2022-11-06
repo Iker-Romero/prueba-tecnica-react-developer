@@ -1,5 +1,7 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 
+import InsertPrograms from '../../components/InsertPrograms';
+import PopUp from '../../components/PopUp';
 import StyledFigure from '../../ui/StyledFigure';
 import StyledSection from '../../ui/StyledSection';
 import sortByTitle from '../../utilities/sortByTitle';
@@ -28,6 +30,10 @@ const ProgramsPage = (props: { type: 'series' | 'movies' }) => {
 
   const [programs, setPrograms] = useState([]);
 
+  const [popUpState, setPopUpState] = useState(false);
+  // const [popUpProgram, setPopUpProgram] = useState(false);
+  const figureRef = useRef(null);
+
   useEffect(() => {
     (async () => {
       const data = await getData(
@@ -45,35 +51,46 @@ const ProgramsPage = (props: { type: 'series' | 'movies' }) => {
 
       setPrograms(programsByType);
     })();
-  });
+  }, []);
+
+  let popUpProgram;
+  if (popUpState) {
+    console.log(popUpProgram);
+  }
 
   return (
     <>
       <h1>Popular {type}</h1>
-      <StyledSection>
-        {programs.map((program, i) => {
+      {popUpState && console.log(popUpProgram)}
+      {console.log(popUpProgram)}
+      {console.log('me renderizo')}
+      <InsertPrograms programs={programs} />
+      {/* {programs.map((program, i) => {
           while (i < 20) {
             const {
               title,
               images: {
                 'Poster Art': { url },
               },
-            }: {
-              title: string;
-              images: {
-                'Poster Art': { url: string };
-              };
-            } = program;
+            }: ProgramType = program;
 
             return (
-              <StyledFigure key={title}>
+              <StyledFigure
+                key={title}
+                onClick={() => {
+                  popUpProgram = program;
+                  console.log(program);
+                  console.log(popUpProgram);
+                  setPopUpState(true);
+                }}
+                ref={figureRef}
+              >
                 <img src={url} alt={`${title} poster`} />
                 <figcaption>{title}</figcaption>
               </StyledFigure>
             );
           }
-        })}
-      </StyledSection>
+        })} */}
     </>
   );
 };
