@@ -12,14 +12,26 @@ const PopUp = (props: { program: ProgramType }) => {
       'Poster Art': { url },
     },
   }: ProgramType = program;
-
+  console.log(program);
   return (
-    <PopUpDiv>
-      <img src={url} alt={`${title} poster`} />
-      <div>
-        <h1>{title}</h1>
-        <h2>({releaseYear})</h2>
-        <p>{description}</p>
+    <PopUpDiv
+      onClick={(e) => {
+        e.target.remove();
+      }}
+    >
+      <div
+        onClick={(e) => {
+          e.stopPropagation();
+        }}
+        className="pop-up"
+      >
+        {console.log(program)}
+        <img src={url} alt={`${title} poster`} />
+        <section>
+          <h1>{title}</h1>
+          <h2>({releaseYear})</h2>
+          <p>{description}</p>
+        </section>
       </div>
     </PopUpDiv>
   );

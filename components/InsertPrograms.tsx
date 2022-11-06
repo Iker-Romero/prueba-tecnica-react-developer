@@ -23,7 +23,13 @@ const InsertPrograms = React.memo(function InsertPrograms(props: {
             }: ProgramType = program;
 
             return (
-              <StyledFigure key={title} onClick={() => handleClick(program)}>
+              <StyledFigure
+                key={title}
+                onClick={() => {
+                  console.log('click');
+                  handleClick(program);
+                }}
+              >
                 <img src={url} alt={`${title} poster`} />
                 <figcaption>{title}</figcaption>
               </StyledFigure>

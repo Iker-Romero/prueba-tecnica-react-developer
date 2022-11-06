@@ -50,6 +50,7 @@ const ProgramsPage = (props: { type: 'series' | 'movies' }) => {
   }, []);
 
   const handleClick = (program: ProgramType) => {
+    console.log(program);
     if (program) setPopUpProgram(program);
   };
 
@@ -57,6 +58,7 @@ const ProgramsPage = (props: { type: 'series' | 'movies' }) => {
     <>
       <h1>Popular {type}</h1>
       <InsertPrograms programs={programs} handleClick={handleClick} />
+      {console.log(popUpProgram)}
       {popUpProgram && <PopUp program={popUpProgram} />}
     </>
   );
