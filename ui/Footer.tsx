@@ -6,6 +6,8 @@ const Footer = styled.footer`
   flex-direction: column;
   gap: 1rem;
   padding: 1rem;
+  max-width: 70rem;
+  margin: 0 auto;
 
   section {
     display: flex;
