@@ -9,10 +9,22 @@ const Home = () => {
       <h1>Home</h1>
       <StyledSection>
         <Link to="/series">
-          <StyledFigure>Series</StyledFigure>
+          <StyledFigure>
+            <img
+              src="https://res.cloudinary.com/dvwva99mi/image/upload/v1667777779/demo-streaming/placeholder_jmzye1.png"
+              alt="Series page"
+            />
+            <figcaption>Series</figcaption>
+          </StyledFigure>
         </Link>
         <Link to="/movies">
-          <StyledFigure>Movies</StyledFigure>
+          <StyledFigure>
+            <img
+              src="https://res.cloudinary.com/dvwva99mi/image/upload/v1667777779/demo-streaming/placeholder_jmzye1.png"
+              alt="Movies page"
+            />
+            <figcaption>Movies</figcaption>
+          </StyledFigure>
         </Link>
       </StyledSection>
     </>

@@ -17,6 +17,11 @@ const Nav = styled.nav`
   a {
     font-weight: bold;
   }
+
+  div {
+    display: flex;
+    gap: 1rem;
+  }
 `;
 
 export default Nav;

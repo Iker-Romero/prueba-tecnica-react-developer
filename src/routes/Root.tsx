@@ -3,6 +3,7 @@ import { NavLink, Outlet } from 'react-router-dom';
 import Footer from '../../ui/Footer';
 import Main from '../../ui/Main';
 import Nav from '../../ui/Nav';
+import StyledButton from '../../ui/StyledButton';
 
 const Root = () => {
   return (
@@ -10,6 +11,10 @@ const Root = () => {
       <header>
         <Nav>
           <NavLink to="/">DEMO Streaming</NavLink>
+          <div>
+            <StyledButton id="login">Log in</StyledButton>
+            <StyledButton id="trial">Start your free trial</StyledButton>
+          </div>
         </Nav>
       </header>
       <Main>
