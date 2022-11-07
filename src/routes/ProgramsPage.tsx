@@ -32,24 +32,30 @@ const ProgramsPage = (props: { type: 'series' | 'movies' }) => {
 
   const [popUpProgram, setPopUpProgram] = useState<ProgramType>();
 
+  let fetchError;
+
   useEffect(() => {
     (async () => {
-      const data = await getData(
-        'https://raw.githubusercontent.com/StreamCo/react-coding-challenge/master/feed/sample.json',
-      );
+      try {
+        const data = await getData(
+          'https://raw.githubusercontent.com/StreamCo/react-coding-challenge/master/feed/sample.json',
+        );
 
-      const programsByType = data.entries.filter((program: ProgramType) => {
-        if (type === 'movies') {
-          return program.programType === 'movie' && program.releaseYear >= 2010;
-        }
-        return program.programType === type;
-      });
+        const programsByType = data.entries.filter((program: ProgramType) => {
+          if (type === 'movies') {
+            return program.programType === 'movie' && program.releaseYear >= 2010;
+          }
+          return program.programType === type;
+        });
 
-      programsByType.sort((a: ProgramType, b: ProgramType) => sortByTitle(a, b));
+        programsByType.sort((a: ProgramType, b: ProgramType) => sortByTitle(a, b));
 
-      isLoading = false;
+        isLoading = false;
 
-      setPrograms(programsByType);
+        setPrograms(programsByType);
+      } catch (error) {
+        fetchError = error;
+      }
     })();
   }, []);
 
@@ -58,7 +64,14 @@ const ProgramsPage = (props: { type: 'series' | 'movies' }) => {
     if (program) setPopUpProgram(program);
   };
 
-  if (isLoading) {
+  if (fetchError) {
+    return (
+      <>
+        <h1>Oops!</h1>
+        <p>{fetchError}</p>
+      </>
+    );
+  } else if (isLoading) {
     return <h1>Loading...</h1>;
   }
   return (
