@@ -60,7 +60,6 @@ const ProgramsPage = (props: { type: 'series' | 'movies' }) => {
   }, []);
 
   const handleClick = (program: ProgramType) => {
-    console.log(program);
     if (program) setPopUpProgram(program);
   };
 

@@ -12,20 +12,9 @@ const PopUp = (props: { program: ProgramType; removePopUp: () => void }) => {
       'Poster Art': { url },
     },
   }: ProgramType = program;
-  console.log(program);
   return (
-    <PopUpDiv
-      onClick={() => {
-        removePopUp();
-      }}
-    >
-      <div
-        onClick={(e) => {
-          e.stopPropagation();
-        }}
-        className="pop-up"
-      >
-        {console.log(program)}
+    <PopUpDiv onClick={(e) => e.target === e.currentTarget && removePopUp()}>
+      <div className="pop-up">
         <img src={url} alt={`${title} poster`} />
         <section>
           <h1>{title}</h1>

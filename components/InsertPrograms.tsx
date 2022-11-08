@@ -26,7 +26,6 @@ const InsertPrograms = React.memo(function InsertPrograms(props: {
               <StyledFigure
                 key={title}
                 onClick={() => {
-                  console.log('click');
                   handleClick(program);
                 }}
               >
