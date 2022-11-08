@@ -1,8 +1,8 @@
 import { ProgramType } from '../src/routes/ProgramsPage';
 import PopUpDiv from '../ui/PopUpDiv';
 
-const PopUp = (props: { program: ProgramType }) => {
-  const { program } = props;
+const PopUp = (props: { program: ProgramType; removePopUp: () => void }) => {
+  const { program, removePopUp } = props;
 
   const {
     title,
@@ -15,8 +15,8 @@ const PopUp = (props: { program: ProgramType }) => {
   console.log(program);
   return (
     <PopUpDiv
-      onClick={(e) => {
-        e.target.remove();
+      onClick={() => {
+        removePopUp();
       }}
     >
       <div

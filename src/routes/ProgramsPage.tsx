@@ -30,7 +30,7 @@ const ProgramsPage = (props: { type: 'series' | 'movies' }) => {
 
   const [programs, setPrograms] = useState([]);
 
-  const [popUpProgram, setPopUpProgram] = useState<ProgramType>();
+  const [popUpProgram, setPopUpProgram] = useState<ProgramType | null>();
 
   let fetchError;
 
@@ -64,6 +64,8 @@ const ProgramsPage = (props: { type: 'series' | 'movies' }) => {
     if (program) setPopUpProgram(program);
   };
 
+  const removePopUp = () => setPopUpProgram(null);
+
   if (fetchError) {
     return (
       <>
@@ -78,8 +80,7 @@ const ProgramsPage = (props: { type: 'series' | 'movies' }) => {
     <>
       <h1>Popular {type}</h1>
       <InsertPrograms programs={programs} handleClick={handleClick} />
-      {console.log(popUpProgram)}
-      {popUpProgram && <PopUp program={popUpProgram} />}
+      {popUpProgram && <PopUp program={popUpProgram} removePopUp={removePopUp} />}
     </>
   );
 };
